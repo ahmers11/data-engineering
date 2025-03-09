@@ -1,0 +1,21 @@
+
+
+Step 1: Create a Virtual Environment
+
+python -m venv myenv
+
+Step 2: Activate the Virtual Environment
+myenv\Scripts\Activate
+
+Step 3: Verify the Virtual Environment is Active
+python --version
+
+Step 4: Install Packages in the Virtual Environment
+pip install <package-name>
+
+Step 6: Deactivate the Virtual Environment
+deactivate
+
+Optional: Delete the Virtual Environment
+rmdir /s /q myenv  # For Command Prompt
+Remove-Item -Recurse -Force myenv  # For PowerShell
