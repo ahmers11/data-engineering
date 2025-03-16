@@ -4,7 +4,7 @@ import random
 import os
 
 # Initialize Faker instance
-fake = Faker()
+fake = Faker() 
 
 # Function to generate fake customer data
 def generate_customer_data(num_customers=10):

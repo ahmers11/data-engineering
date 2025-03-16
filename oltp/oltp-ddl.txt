@@ -1,13 +1,22 @@
-CREATE TABLE BRONZE.CUSTOMERS (
-    CUST_ID STRING
-)
+CREATE TABLE IF NOT EXISTS oltp.customers (
+            cust_id VARCHAR(36) PRIMARY KEY,
+            cust_first_name VARCHAR(50),
+            cust_last_name VARCHAR(50),
+            cust_address TEXT
+        )
 
+CREATE TABLE IF NOT EXISTS oltp.products (
+            product_id VARCHAR(36) PRIMARY KEY,
+            product_name VARCHAR(100),
+            price DECIMAL(10,2)
+        )
 
-CREATE TABLE BRONZE.PRODUCTS (
-    PRODUCT_ID STRING
-)
-
-
-CREATE TABLE BRONZE.TRANSACTIONS (
-    PRODUCT_ID STRING
-)
+CREATE TABLE IF NOT EXISTS oltp.transactions (
+            trans_id VARCHAR(36) PRIMARY KEY,
+            trans_date DATE,
+            trans_amt DECIMAL(10,2),
+            cust_id VARCHAR(36),
+            product_id VARCHAR(36),
+            FOREIGN KEY (cust_id) REFERENCES customers(cust_id) ON DELETE CASCADE,
+            FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
+        )
